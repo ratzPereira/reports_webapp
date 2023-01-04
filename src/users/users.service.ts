@@ -11,4 +11,30 @@ export class UsersService {
   createUser(user: UserDto) {
     return this.repository.save(user);
   }
+
+  findUser(id: number) {
+    return this.repository.findBy({ id });
+  }
+
+  findAllUsers(email: string) {
+    return this.repository.find({ where: { email } });
+  }
+
+  async updateUser(id: number, attrs: Partial<UserDto>) {
+    const user = await this.repository.findOne({ where: { id } });
+
+    if (!user) throw new Error('User not found');
+
+    Object.assign(user, attrs);
+
+    return this.repository.save(user);
+  }
+
+  async deleteUser(id: number) {
+    const user = await this.repository.findOne({ where: { id } });
+
+    if (!user) throw new Error('User not found');
+
+    return this.repository.remove(user);
+  }
 }

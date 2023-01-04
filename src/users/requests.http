@@ -7,3 +7,19 @@ content-Type: : application/json
     "email":"ratzpereira@gmail.com",
     "password":"sdsdsdsdsd"
 }
+### GEt user by id
+GET http://localhost:3000/users/auth/12
+
+
+###GET ALL BY EMAIL
+GET http://localhost:3000/users/auth/ratzpereira@gmail.com
+
+
+###UPDATE USER
+PATCH http://localhost:3000/users/auth/1
+content-Type: : application/json
+
+{
+    "email":"ratzpereira@gmail.com",
+    "password":"1"
+}
