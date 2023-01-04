@@ -13,6 +13,7 @@ import { UserDto } from './dtos/user.dto';
 import { UserResponseDTO } from './dtos/user.response.dto';
 import { UsersService } from './users.service';
 
+@Serialize(UserResponseDTO)
 @Controller('users/auth')
 export class UsersController {
   constructor(private userService: UsersService) {}
@@ -22,7 +23,7 @@ export class UsersController {
     return this.userService.createUser(body);
   }
 
-  @Serialize(UserResponseDTO)
+
   @Get('/:id')
   findUser(@Param('id') id: number) {
     return this.userService.findUser(id);

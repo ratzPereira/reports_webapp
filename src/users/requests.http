@@ -12,7 +12,7 @@ GET http://localhost:3000/users/auth/3
 
 
 ###GET ALL BY EMAIL
-GET http://localhost:3000/users/auth/ratzpereira@gmail.com
+GET http://localhost:3000/users/auth?email=ratzpereira@gmail.com
 
 
 ###UPDATE USER
