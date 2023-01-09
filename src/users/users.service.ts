@@ -8,8 +8,8 @@ import { User } from './entity/user.entity';
 export class UsersService {
   constructor(@InjectRepository(User) private repository: Repository<User>) {}
 
-  createUser(user: UserDto) {
-    return this.repository.save(user);
+  createUser(email: string, password: string) {
+    return this.repository.save({email, password});
   }
 
   findUser(id: number) {
