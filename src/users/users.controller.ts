@@ -1,3 +1,5 @@
+
+import { CurrentUser } from './decorators/current-user.decorator';
 import {
   Body,
   Controller,
@@ -23,9 +25,9 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  @Get('/howami')
-  whoAmI(@Session() session: any) {
-    return this.userService.findUser(session.userId);
+  @Get('/whoami')
+  whoAmI(@CurrentUser() user: UserDto) {
+    return user;
   }
 
   @Post('/signout')
