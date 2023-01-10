@@ -1,3 +1,4 @@
+import { AuthGuard } from './../guards/auth.guard';
 
 import { CurrentUser } from './decorators/current-user.decorator';
 import {
@@ -10,6 +11,7 @@ import {
   Post,
   Query,
   Session,
+  UseGuards,
 } from '@nestjs/common';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
@@ -53,6 +55,7 @@ export class UsersController {
   }
 
   @Get('/:id')
+  @UseGuards(AuthGuard)
   findUser(@Param('id') id: number) {
     return this.userService.findUser(id);
   }
