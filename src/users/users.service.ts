@@ -13,6 +13,8 @@ export class UsersService {
   }
 
   findUser(id: number) {
+
+    if(!id) return null;
     return this.repository.findBy({ id });
   }
 
