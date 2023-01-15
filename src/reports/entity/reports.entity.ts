@@ -1,4 +1,3 @@
-import { report } from 'process';
 import { User } from "src/users/entity/user.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 

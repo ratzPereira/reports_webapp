@@ -1,5 +1,4 @@
 import { Reports } from './../../reports/entity/reports.entity';
-
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -15,7 +14,9 @@ export class User {
     @Column()
     password: string;
 
-    @OneToMany(() => Reports, (report)=> report.user)
+    @OneToMany(() => Reports, (reports)=> reports.user, {
+        cascade: true,
+    })
     reports: Reports[];
 
 }
